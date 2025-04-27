@@ -1,5 +1,6 @@
 
 using Vektorel.Api.Extensions;
+using Vektorel.Api.Middlewares;
 
 namespace Vektorel.Api;
 
@@ -25,6 +26,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseMiddleware<AccessCheckMiddleware>();
 
         app.UseAuthorization();
 
