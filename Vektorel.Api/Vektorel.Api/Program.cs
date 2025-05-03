@@ -13,6 +13,7 @@ public class Program
 
         builder.Services.AddControllers();
         builder.Services.AddNorthwind(builder.Configuration);
+        builder.Services.AddDevelopmentCors();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -23,6 +24,7 @@ public class Program
         {
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseCors("Development");
         }
 
         app.UseHttpsRedirection();

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.Api", "Vektorel.Api\Vektorel.Api.csproj", "{606163B6-B27F-4E0E-AC3F-6480329DAFE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vektorel.Api", "Vektorel.Api\Vektorel.Api.csproj", "{606163B6-B27F-4E0E-AC3F-6480329DAFE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vektorel.ApiClient", "Vektorel.ApiClient\Vektorel.ApiClient.csproj", "{B8C436B0-C9D6-4018-915F-998237A6D1CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{606163B6-B27F-4E0E-AC3F-6480329DAFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{606163B6-B27F-4E0E-AC3F-6480329DAFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{606163B6-B27F-4E0E-AC3F-6480329DAFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8C436B0-C9D6-4018-915F-998237A6D1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C436B0-C9D6-4018-915F-998237A6D1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C436B0-C9D6-4018-915F-998237A6D1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C436B0-C9D6-4018-915F-998237A6D1CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

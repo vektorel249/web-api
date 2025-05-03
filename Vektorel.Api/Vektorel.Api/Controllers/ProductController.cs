@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vektorel.Api.Context;
+using Vektorel.Api.Entities;
+using Vektorel.Api.Models;
 
 namespace Vektorel.Api.Controllers;
 
@@ -65,6 +67,46 @@ public class ProductController : ControllerBase
         }
 
         return Ok(products);
+    }
+
+    [HttpPost("create")]
+    public IActionResult CreateProduct([FromBody] Product product)
+    {
+        context.Products.Add(product);
+        context.SaveChanges();
+        return Ok(product.ProductName + " Eklendi");
+    }
+
+    [HttpPatch("add-stock")]
+    public IActionResult UpdateProduct([FromBody] AddStockDto product)
+    {
+        //Bu kod artık çalışmaz çünkü AddStockDto'da Rande DataAnnotation var. Bakınız
+        if (product.ProductID <= 0)
+        {
+            return BadRequest("Uygunsuz ürün kimliği");
+        }
+        var p = context.Products.FirstOrDefault(f => f.ProductID == product.ProductID);
+        if (p is null)
+        {
+            return BadRequest("Ürün bulunamadı");
+        }
+        p.UnitsInStock += product.UnitCount;
+
+        context.SaveChanges();
+        return Ok(p.ProductName + " Stok güncellendi...: " + p.UnitsInStock);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete([FromRoute] int id)
+    {
+        var p = context.Products.FirstOrDefault(f => f.ProductID == id);
+        if (p is null)
+        {
+            return BadRequest("Ürün bulunamadı");
+        }
+        context.Products.Remove(p);
+        context.SaveChanges();
+        return Ok(p.ProductName + " Silindi");
     }
 }
 

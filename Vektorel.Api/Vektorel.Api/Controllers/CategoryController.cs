@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vektorel.Api.Context;
+using Vektorel.Api.Entities;
 
 namespace Vektorel.Api.Controllers;
 
@@ -19,6 +20,14 @@ public class CategoryController : ControllerBase
     {
         var categories = context.Categories.ToList();
         return Ok(categories);
+    }
+
+    [HttpPut]
+    public IActionResult Update([FromBody]Category category)
+    {
+        context.Categories.Update(category);
+        context.SaveChanges();
+        return Ok();
     }
 }
 
